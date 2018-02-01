@@ -13,6 +13,7 @@ The amount of data used to represent a single pixel
 
 ### Other Color Spaces
 __RGBA__: red, green, blue + alpha (transparency)
+
 __HSB__: hue, saturation, bightness
 - hue: angle measurement
 - saturation: radius of base of cone
@@ -22,6 +23,7 @@ __HSB__: hue, saturation, bightness
 
 ### Image File Formats
 __Raster vs. Vector__
+
 Vector formats represent images as a series of drawing instructions
 - infinitely scalable
 - good for stuff like fonts and shapes, not so good for actual pictures
