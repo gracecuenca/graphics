@@ -15,7 +15,7 @@ The amount of data used to represent a single pixel
 __RGBA__: red, green, blue + alpha (transparency)
 __HSB__: hue, saturation, bightness
 - hue: angle measurement
-- saturation: radius of circle
+- saturation: radius of base of cone
 - brightness: height of cone
 
 ![HSB IMAGE](https://2020spiritualvision.files.wordpress.com/2017/02/hsl-cone-graphic.jpg)
@@ -26,5 +26,6 @@ Vector formats represent images as a series of drawing instructions
 - infinitely scalable
 - good for stuff like fonts and shapes, not so good for actual pictures
 - SVG: Scalable Vector Graphics
+
 Raster formats represent images as a grid of pixels
 
