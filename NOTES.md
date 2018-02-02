@@ -1,4 +1,4 @@
-## 01-31-18 | Aim: Peering into the depths of color
+## 01/31/18 - 02/01/18 | Aim: Peering into the depths of color
 ### Color Depth
 The amount of data used to represent a single pixel
 
@@ -22,7 +22,7 @@ __HSB__: hue, saturation, bightness
 ![HSB IMAGE](https://2020spiritualvision.files.wordpress.com/2017/02/hsl-cone-graphic.jpg)
 
 ### Image File Formats
-__Raster vs. Vector__
+__Vector vs. Raster__
 
 Vector formats represent images as a series of drawing instructions
 - infinitely scalable
@@ -31,3 +31,31 @@ Vector formats represent images as a series of drawing instructions
 
 Raster formats represent images as a grid of pixels
 
+__Uncompressed vs. Compressed (Raster)__
+
+Uncompressed formats contain data for each pixel
+- examples: BMP, TIFF, RAW
+
+Compressed formats use a compression algorithm to minimize file size (don't change resolution!)
+- Lossless vs. Lossy
+  - Lossless compression algorithms contain enough information to exactly recreate the original image
+    - PNG (Portable network Graphics), GIF (Graphics interchange Format)
+  - Lossy compression Algirthms do not retain all the details of the original image (generally avergae out groups of pixels and make that an entire chunk a single pixel)
+    - JPEG (Joint Photographic Experts Group)
+
+__PPM (Portable PixMap)__
+- Uncompressed raster format
+- Pixel data is represented by RGB triplets in either ASCII (easier) or binary
+- All whitespace is equivalent
+
+example file: 
+
+P3 (tells you what kind if file it is. P3 tells you it's ASCII)
+
+4 3 (resolution, width followed by height in pixels)
+
+255 (maximum color value)
+
+^^ all this in the header
+
+then, raster pixel data follows
