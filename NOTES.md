@@ -35,6 +35,7 @@ __Uncompressed vs. Compressed (Raster)__
 
 Uncompressed formats contain data for each pixel
 - examples: BMP, TIFF, RAW
+- __NOTE: THESE FILES CAN BE VERY LARGE__
 
 Compressed formats use a compression algorithm to minimize file size (don't change resolution!)
 - Lossless vs. Lossy
@@ -47,15 +48,14 @@ __PPM (Portable PixMap)__
 - Uncompressed raster format
 - Pixel data is represented by RGB triplets in either ASCII (easier) or binary
 - All whitespace is equivalent
+- __NOTE: THESE FILES CAN GET VERY LARGE SO DO NOT PUSH THE .PPM FILES TO GITHUB REPO__
 
-example file: 
+example file (in .ppm file): 
 
-P3 (tells you what kind if file it is. P3 tells you it's ASCII)
-
-4 3 (resolution, width followed by height in pixels)
-
-255 (maximum color value)
-
-^^ all this in the header
-
+```ppm
+P3 //tells you what kind of file it is. P3 tells you it's in ASCII
+4 3 //resolution, width followed by height in pixels
+255 //mximum color value
+//all of this is in the header^^
 then, raster pixel data follows
+```
