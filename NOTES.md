@@ -59,3 +59,15 @@ P3 //tells you what kind of file it is. P3 tells you it's in ASCII
 //all of this is in the header^^
 then, raster pixel data follows
 ```
+## 02/05/18 | Aim: --
+### Bresenham's Line Algorithm
+
+- Find the best pixels to approximate the tangent line.
+- Assume: (x0,y0) -> (x1,y1)
+  - x0, y0, x1, y1 are all integers
+  - x0 < x1 (we're always going to draw the line from left to right)
+  - Octant Cartesian Coordinate System
+  - Start at Octant I (slope is between 0 and 1)
+  
+![OCTANT](https://i.stack.imgur.com/Gk616.jpg)
+
