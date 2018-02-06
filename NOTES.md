@@ -59,7 +59,7 @@ P3 //tells you what kind of file it is. P3 tells you it's in ASCII
 //all of this is in the header^^
 then, raster pixel data follows
 ```
-## 02/05/18 | Aim: --
+## 02/05/18 - 02/06/18 | Aim: --
 ### Bresenham's Line Algorithm
 
 - Find the best pixels to approximate the tangent line.
@@ -70,4 +70,94 @@ then, raster pixel data follows
   - Start at Octant I (slope is between 0 and 1)
   
 ![OCTANT](https://i.stack.imgur.com/Gk616.jpg)
+
+![GRAPH](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Bresenham.svg/300px-Bresenham.svg.png)
+
+if (x+1, y+1/2) is above draw the lower pixel
+
+if (x+1, y+1/2) is below, drawn the upper pixel
+
+__Testing (x+1,y+1/2)__
+
+y = mx + b
+
+0 = mx - y + b
+
+0 = (Δy/Δx)x - y + b
+
+0 = (Δy)Δx - (Δx)y + (Δx)b
+
+A = Δy, B = -Δx, C = (Δx)b
+
+0 = Ax + By + C
+
+f(x,y) = Ax + By + C
+
+f(x,y) = 0 (on the line)
+
+f(x,y') < 0 (when y' > y, above line)
+
+f(x,y'') > 0 (when y'' < y, below line)
+
+__First Draft Line Algorithm (x0,y0) -> (x1,y1)__
+```
+//pseudocode
+x = x0, y = y0
+d = f(x+1,y+1/2)
+while x <= x1
+  plot (x,y)
+  if d > 0
+    y++
+  x++
+  d = f(x+1,y+1/2) //can be optimized
+```
+
+If x increases by 1, d = d + A
+
+If y increases by 1, d = d + B
+
+__Second Draft Line Algorithm (x0,y0) -> (x1,y1)__
+```
+//pseudocode
+x = x0, y = y0
+d = f(x+1,y+1/2) //still a problem
+while x <= x1
+  plot (x,y)
+  if d > 0
+    y++
+    d+=B
+  x++
+  d+=A
+```
+d0 = f(x0+1,y0+1/2)
+
+= A(x0+1) + B(y0+1/2) + C
+
+= Ax0 + By0 + C + A + 1/2B
+
+We know Ax0 + By0 + C = 0 (it is f(x0,y0))
+
+d0 = A +1/2B
+
+2d0 = 2A + B
+
+__Third Draft Line Algorithm (x0,y0) -> (x1,y1)__
+```
+//pseudocode
+x = x0, y = y0
+d = 2A + B
+while x <= x1
+  plot (x,y)
+  if d > 0
+    y++
+    d+=2B //two b everything doubles
+  x++
+  d+=2A
+```
+
+
+
+
+
+
 
