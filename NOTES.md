@@ -59,7 +59,7 @@ P3 //tells you what kind of file it is. P3 tells you it's in ASCII
 //all of this is in the header^^
 then, raster pixel data follows
 ```
-## 02/05/18 - 02/06/18 | Aim: --
+## 02/05/18 - 02/07/18 | Aim: --
 ### Bresenham's Line Algorithm
 
 - Find the best pixels to approximate the tangent line.
@@ -155,6 +155,29 @@ while x <= x1
   d+=2A
 ```
 
+### Octant II
+
+Slope is > 1 and < infinity
+
+New choices: (x, y+1) and (x+1, y+1)
+
+New midpoint: (x+1/2,y+1)
+
+d0 = f(x+1/2,y+1) =1/2A + B = A + 2B
+```
+//pseudocode
+x = x0, y = y0
+d = A + 2B
+while y <= y1
+  plot (x,y)
+  if d < 0 //this means that ourmidpoint is to the left of the line
+    x++
+    d+=2A
+  y++
+  d+=2B
+```
+
+### Octant VIII
 
 
 
