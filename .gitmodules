@@ -1,3 +1,6 @@
 [submodule "work01"]
 	path = work01
 	url = git@github.com:gracecuenca/graphics_01.git
+[submodule "work02"]
+	path = work02
+	url = git@github.com:gracecuenca/graphics_w2.git
