@@ -176,11 +176,11 @@ while y <= y1
   y++
   d+=2B
 ```
+Same goes for Octants VIII and VII
 
-### Octant VIII
+## 02/12/18 | Aim: --
+### Represeting Image Data
 
-
-
-
-
-
+__Edge List (Edge Matrix)__ 
+- Images are stored as a list of points where each two points define a line
+- [ P0, P1, P1, P2, P2, P0 ] in whcih each P represents a set of (x,y,z) coordinates (will need z coordinate later for rotations)
