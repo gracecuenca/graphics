@@ -184,3 +184,37 @@ Same goes for Octants VIII and VII
 __Edge List (Edge Matrix)__ 
 - Images are stored as a list of points where each two points define a line
 - [ P0, P1, P1, P2, P2, P0 ] in whcih each P represents a set of (x,y,z) coordinates (will need z coordinate later for rotations)
+
+## 02/13/18 | Aim: --
+### Matrix Math for Graphs
+
+__Matrix Multiplication__
+- Let M and N be two matrices; we are performing M・N
+- Number of rows in the N must equal number of columns in M
+- R1xC1・R2xC2 = R1xC2 (new dimensions)
+- Not a commutative operation
+  - M・N not necessarily equal to N・M
+- __Multiplicative Identity__
+  - I・M = M
+  
+![IDENTITY MATRIX](http://www.statisticslectures.com/images/identity2.gif)
+
+### Transformations
+
+__Affine transformation__: preserves the number of vertices and the order (orientation) of the vertices.; preserves the structures of the edge matrices. Includes translations, dilations, and rotations.
+
+Let: E be the edge matrix, T be the transformation matrix
+
+Two choices: E・T or T・E
+
+We will go with T・E in order to preserve the size of E
+
+__Translation__: move
+
+(x,y,z) T(a,b,c)-> (x+a,y+b,z+c)
+
+__Dilation__: 
+
+__Rotation__: 
+
+
