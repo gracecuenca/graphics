@@ -4,3 +4,6 @@
 [submodule "work02"]
 	path = work02
 	url = git@github.com:gracecuenca/graphics_w2.git
+[submodule "work03"]
+	path = work03
+	url = git@github.com:gracecuenca/graphics_w3.git
