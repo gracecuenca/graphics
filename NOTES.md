@@ -213,8 +213,29 @@ __Translation__: move
 
 (x,y,z) T(a,b,c)-> (x+a,y+b,z+c)
 
-__Dilation__: 
+## 02/26/18 | Aim: --
+__Dilation__: changing the size of the shape, scaling
 
-__Rotation__: 
+(x,y,z) Da-> (ax,ay,az) (where a is the scaling factor)
 
+Multiply the matrix [x,y,z,1] by the identity matrix except instead of 1's you put the scaling factor in (except the last 1 at the bottom right stays the same)
 
+Dilations do not have to be proportional!
+
+Dilation are done respective to the origin
+
+In order to deal with this, we can translate the object to the origin, dilate it, and then translate it back to its original location
+
+__Rotation__: flipping
+
+(x,y) RΘ-> (?,?)
+
+__POLAR COORDINATES__
+
+x = rcosΦ
+
+y = rsinΦ
+
+x1 = rcos(Θ+Φ) = rcosΦcosΘ - rsinΦsinΘ = xcosΘ - xsinΘ
+
+y1 = rsin(Θ+Φ) = rsinΦsinΘ + cosΦsinΘ = ycosΘ + xsinΘ
