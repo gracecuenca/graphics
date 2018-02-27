@@ -213,7 +213,7 @@ __Translation__: move
 
 (x,y,z) T(a,b,c)-> (x+a,y+b,z+c)
 
-## 02/26/18 | Aim: --
+## 02/26/18 - 2/27/18 | Aim: --
 __Dilation__: changing the size of the shape, scaling
 
 (x,y,z) Da-> (ax,ay,az) (where a is the scaling factor)
@@ -239,3 +239,51 @@ y = rsinΦ
 x1 = rcos(Θ+Φ) = rcosΦcosΘ - rsinΦsinΘ = xcosΘ - xsinΘ
 
 y1 = rsin(Θ+Φ) = rsinΦsinΘ + cosΦsinΘ = ycosΘ + xsinΘ
+
+(x,y,z) RΘ-> (xcosΘ-ysinΘ,ycosΘ+xsinΘ,z)
+
+![ROTATION MATRIX](https://i.stack.imgur.com/W3hip.jpg)
+
+in order to robustify our graphics engine, we would like to make it possible to rotate about all three axes.
+
+In our standard coordinate plane with the z axis, we rotate about the z axis.
+
+Rotation of Θ degrees about x axis R(Θ,x) is:
+
+y1 = ycosΘ - zsinΘ
+
+z1 = zcosΘ + ysinΘ
+
+Rotation of Θ degrees about the y axis R(Θ,Y) is:
+
+z1 = zcosΘ - xsinΘ
+
+y1 = xcosΘ + zsinΘ
+
+### Combining Transformations
+
+E0 (an edge matrix), T0 (a translate matrix), R0 (a rotate matrix), S0 (a scale matrix)
+
+__TRANSLATING__
+
+T0・E0 = E1
+
+__ROTATING__
+
+R0・E1 = E2
+
+__DILATING__
+
+S0・E2 = E3
+
+__SHORTCUT!__
+
+E3 = S0・R0・T0・E0
+
+Not commutative, but is is associative...
+
+E3 = (S0・R0・T0)・E0
+
+Order is important: we first TRANSLATED then ROTATED then SCALED (apply them in the reverse order for desired effect)
+
+We don't need to multiply by edge matrix until we need to __apply__ the transformation
