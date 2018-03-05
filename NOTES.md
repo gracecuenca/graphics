@@ -319,3 +319,4 @@ y = g(t) = rsinø + Yc --> y = g(t) = rsin2πt + Yc
 ### Spline
 
 - curves that can be connected smoothly
+- only going to use cubic splines
