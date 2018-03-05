@@ -287,3 +287,35 @@ E3 = (S0・R0・T0)・E0
 Order is important: we first TRANSLATED then ROTATED then SCALED (apply them in the reverse order for desired effect)
 
 We don't need to multiply by edge matrix until we need to __apply__ the transformation
+
+
+## 03/05/18 | Aim: --
+
+### Parametric Equations
+
+- Define curves as systems of equations with a single independent variable (t)
+  - x = f(t)
+  - y = g(t)
+- For consistency, we will use the range [0,1] for t.
+
+### General Parametric Framework
+
+For t in range 0 - 1, t++ = some step incrementer:
+
+x = f(t)
+
+y = g(t)
+
+add(x,y) //to struct matrix* edges
+
+### Circle
+
+We need this info: radius and center (Xc,Yc)
+
+x = f(t) = rcosø + Xc --> x = f(t) = rcos2πt + Xc
+
+y = g(t) = rsinø + Yc --> y = g(t) = rsin2πt + Yc
+
+### Spline
+
+- curves that can be connected smoothly
