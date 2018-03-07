@@ -290,7 +290,6 @@ We don't need to multiply by edge matrix until we need to __apply__ the transfor
 
 
 ## 03/05/18 | Aim: --
-
 ### Parametric Equations
 
 - Define curves as systems of equations with a single independent variable (t)
@@ -320,3 +319,32 @@ y = g(t) = rsinø + Yc --> y = g(t) = rsin2πt + Yc
 
 - curves that can be connected smoothly
 - only going to use cubic splines
+
+## 03/06/18 | Aim: --
+
+Recall from yesterday to make a circle:
+
+We need this info: radius and center (Xc,Yc)
+
+x = f(t) = rcosø + Xc --> x = f(t) = rcos2πt + Xc
+
+y = g(t) = rsinø + Yc --> y = g(t) = rsin2πt + Yc
+
+But this doesn't help us for other shapes, only circles.
+
+Let's say we want to generalize the formula for cubics
+
+for t between 0 and 1, t++ step:
+  x = Axt^3 + Bxt^2 + Cxt + Dx
+  y = Ayt^3 + Byt^2 + Cyt + Dy
+
+### Hermite Curves
+- Given information:
+  - P0, P1 (endpoints)
+  - R0, R1: rates of change at endpoints (derivatives kinda) IMPORTANT: IT IS X WITH RESPECT TO T AND Y WITH RESPECT TO Y
+- f(t) = At^3 + Bt^2 + Ct + D: gives us points on the curve
+- f'(t) = 3At^2 + 2Bt + C
+- When t = 0, f(t) = d: P0 & f'(t) = c: R0
+- When t = 1, f(t) = a + b + c + d: P1 & f'(t) = 3a + 2b + c: R1
+
+
