@@ -321,7 +321,6 @@ y = g(t) = rsinø + Yc --> y = g(t) = rsin2πt + Yc
 - only going to use cubic splines
 
 ## 03/06/18 | Aim: --
-
 Recall from yesterday to make a circle:
 
 We need this info: radius and center (Xc,Yc)
@@ -335,6 +334,7 @@ But this doesn't help us for other shapes, only circles.
 Let's say we want to generalize the formula for cubics
 
 for t between 0 and 1, t++ step:
+  
   x = Axt^3 + Bxt^2 + Cxt + Dx
   y = Ayt^3 + Byt^2 + Cyt + Dy
 
@@ -347,4 +347,30 @@ for t between 0 and 1, t++ step:
 - When t = 0, f(t) = d: P0 & f'(t) = c: R0
 - When t = 1, f(t) = a + b + c + d: P1 & f'(t) = 3a + 2b + c: R1
 
+In matriix form:
 
+![HERMITE](https://image.slidesharecdn.com/21bezier-120408025345-phpapp02/95/cs-354-bezier-curves-28-728.jpg?cb=1334065768)
+
+## 03/07/18 | Aim: --
+### Bezier Curves
+
+Goal is still 
+
+for t between 0 and 1, t++ step:
+  
+  x = Axt^3 + Bxt^2 + Cxt + Dx
+  y = Ayt^3 + Byt^2 + Cyt + Dy
+ 
+But we use different information
+
+- Given n+1 points, where n = degree of the curve (aka highest power)
+- For a line, we would need two points, namely the beginning point P0 and the endpoint P1
+  - There would be a point Pt on the line and Pt moves along the line P0P1
+  - Pt = (1-t)P0 + tP1 
+  - this line is being create and they are inversely related. As t gets bigger, P1 starts to get more power than P0
+- Quadratic
+  - I have two Bezeir lines that are static, and we move along the lines connecting points on the lines
+  - (1-t)^2P0 + t(1-t)P1 + t(1-t)P1 + t^2P2 = (1-t)^2P0 + 2t(1-t)P1 + t^2P2 (not in the form we want...)
+- Cubic
+  - Same process again, except now you're going to have an extra layer of depth
+  - (1-t)^3P0 + 3t(1-t)^2P1 + 3t^2(1-t)P2 + t^3P3
