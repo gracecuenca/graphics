@@ -348,7 +348,18 @@ for t between 0 and 1, t++ step:
 - When t = 1, f(t) = a + b + c + d: P1 & f'(t) = 3a + 2b + c: R1
 
 __Hermite Curve Matrix__ (really just inverse)
-[insert]
+```
+[0  0  0  1]     [a]      [P0]
+[1  1  1  1]     [b]      [P1]
+[0  0  1  0]  ・ [c]   =  [R0]
+[3  2  1  0]     [d]      [R1]
+```
+```
+[2  -2  1  1]     [P0]      [a]
+[-3  3 -2 -1]     [P1]      [b]
+[0   0  1  0]  ・ [P2]   =  [c]
+[1   0  0  0]     [P3]      [d]
+```
 
 In matriix form:
 
@@ -388,7 +399,7 @@ It ends up being (-P0 + 3P1 - 3P2 +3P3)t^3 + (3P0 - 6P1 + 3P2)t^2 + (-3P0 + 3P1)
 __Bezier Curve Matrix__
 ```
 [-1  3 -3  1]     [P0]      [a]
-[3  -6  3  0 ]    [P1]      [b]
+[3  -6  3  0]     [P1]      [b]
 [-3  3  0  0]  ・ [P2]   =  [c]
 [1   0  0  0]     [P3]      [d]
 ```
