@@ -347,6 +347,9 @@ for t between 0 and 1, t++ step:
 - When t = 0, f(t) = d: P0 & f'(t) = c: R0
 - When t = 1, f(t) = a + b + c + d: P1 & f'(t) = 3a + 2b + c: R1
 
+__Hermite Curve Matrix__ (really just inverse)
+[insert]
+
 In matriix form:
 
 ![HERMITE](https://image.slidesharecdn.com/21bezier-120408025345-phpapp02/95/cs-354-bezier-curves-28-728.jpg?cb=1334065768)
@@ -374,3 +377,18 @@ But we use different information
 - Cubic
   - Same process again, except now you're going to have an extra layer of depth
   - (1-t)^3P0 + 3t(1-t)^2P1 + 3t^2(1-t)P2 + t^3P3
+
+## 03/08/18 | Aim: --
+Continuation of Bezier Curves
+
+In order to simplify (1-t)^3P0 + 3t(1-t)^2P1 + 3t^2(1-t)P2 + t^3P3 to the Ax^3 + Bx^2 + Cx + Dx form, we must perform binomial expansion.
+
+It ends up being (-P0 + 3P1 - 3P2 +3P3)t^3 + (3P0 - 6P1 + 3P2)t^2 + (-3P0 + 3P1)t + P0
+
+__Bezier Curve Matrix__
+```
+[-1  3 -3  1]     [P0]      [a]
+[3  -6  3  0 ]    [P1]      [b]
+[-3  3  0  0]  ・ [P2]   =  [c]
+[1   0  0  0]     [P3]      [d]
+```
