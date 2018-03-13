@@ -403,3 +403,57 @@ __Bezier Curve Matrix__
 [-3  3  0  0]  ・ [P2]   =  [c]
 [1   0  0  0]     [P3]      [d]
 ```
+## 03/13/18 | Aim: --
+__3D Shapes__
+- Z coordinate is a modifier of the x and y
+- a primitive way to do this is to mess with the z values to have one mapping to a blue image and one mapping to a red image (like in the 3D glasses)
+- We will work with box, sphere, toras (donut)
+
+__Box__
+
+Defining points
+- 8 vertices 
+
+Given information: size information
+- width (x)
+- height (y)
+- depth (z)
+- P0 (top left front)
+
+12 calls to add_edge() function
+
+__Sphere__
+
+Defining Points
+- Points on the surface
+
+Givens
+- Center
+- Radius 
+
+Generate points by rotating a circle
+- Rotating about x-axis/ y-axis
+
+![SPHERE](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Sphere_wireframe_10deg_6r.svg/1200px-Sphere_wireframe_10deg_6r.svg.png)
+
+- Z-axis just gives a circle, so you can't generate a sphere this way
+- Thus, you can use x or y axis rotation
+
+__X Rotation__
+
+```
+x-rotation                circle            sphere
+[1 0 0]                   [rcos(theta)]     rcostheta
+[0 cos(phi) -sin(phi)] *  [rsin(theta)] =   rsinthetacosphi
+[0 sin(phi) cos(phi)]     [0]               rsinthetasinphi
+
+theta: angle of creation
+phi: angle of circle rotation
+ranges: theta: 0 to 2pi, phi: 0 to pi
+
+however if we do
+
+theta: 0 to pi, phi: 0 to 2pi, we get a semicircle that we rotate (as opposed to cirle)
+
+but both will work!
+```
