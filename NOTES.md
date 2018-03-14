@@ -407,7 +407,7 @@ __Bezier Curve Matrix__
 __3D Shapes__
 - Z coordinate is a modifier of the x and y
 - a primitive way to do this is to mess with the z values to have one mapping to a blue image and one mapping to a red image (like in the 3D glasses)
-- We will work with box, sphere, toras (donut)
+- We will work with box, sphere, torus (donut)
 
 __Box__
 
@@ -456,4 +456,60 @@ however if we do
 theta: 0 to pi, phi: 0 to 2pi, we get a semicircle that we rotate (as opposed to cirle)
 
 but both will work!
+```
+
+## 03/14/18 | Aim: --
+
+Pseudocode for semicricle/circle
+```
+for theta: 0 to pi:
+	x = rcostheta + cx
+	y = rsinthetacosphi + cy
+	z = rsinthetasinphi + cz
+```
+
+This entire thing makes a circle/semi
+```
+for phi: theta to 2pi:
+	for theta: 0 to pi:
+		x = rcostheta + cx
+		y = rsinthetacosphi + cy
+		z = rsinthetasinphi + cz
+```
+__Torus__
+
+Defining points
+- surface points
+
+Given information
+- center (cx, cy, cz)
+- R (radius from center of to torus to center of the face of the cross section of the torus)
+- r (radius of the cross section face)
+
+To generate points you translate a circle and rotate it
+
+If we move along X, then we rotate about Y
+
+If we move along Y, we rotate about X
+
+![TORUS](https://www.sharcnet.ca/Software/Gambit/html/modeling_guide/mgimage/fig_g_volm_create_torus.gif)
+
+Equation
+
+First, generate circle and move it by big R
+
+rcostheta + R
+
+rsintheta
+
+theta
+
+```
+y rot               circle+ move        torus
+[cosphi 0 sinphi]   [rcostheta + R]     cosphi(rcostheta+R) + cx = x
+[0 1 phi]           [rsintheta]         rsintheta           + cy = y
+[-sinphi 0 cosphi]  [0]                 -sinphi(rcostheta+r) + cz = z
+
+theta: 0 to 2pi
+phi:  0 to 2pi
 ```
