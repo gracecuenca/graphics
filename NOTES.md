@@ -361,7 +361,7 @@ __Hermite Curve Matrix__ (really just inverse)
 [1   0  0  0]     [P3]      [d]
 ```
 
-In matriix form:
+In matrix form:
 
 ![HERMITE](https://image.slidesharecdn.com/21bezier-120408025345-phpapp02/95/cs-354-bezier-curves-28-728.jpg?cb=1334065768)
 
@@ -442,47 +442,50 @@ Generate points by rotating a circle
 __X Rotation__
 
 ```
-x-rotation                circle            sphere
-[1 0 0]                   [rcos(theta)]     rcostheta
-[0 cos(phi) -sin(phi)] *  [rsin(theta)] =   rsinthetacosphi
-[0 sin(phi) cos(phi)]     [0]               rsinthetasinphi
+     x-rotation           circle            sphere
+[1      0         0]     [rcos(θ)]     	    rcosθ
+[0   cos(Φ) -sin(Φ)] ・  [rsin(θ)]   =    rsinθcosΦ
+[0   sin(Φ)  cos(Φ)]     [   0   ]        rsinθsinΦ
 
-theta: angle of creation
-phi: angle of circle rotation
-ranges: theta: 0 to 2pi, phi: 0 to pi
+θ: angle of creation
+Φ: angle of circle rotation
+ranges: 
+θ: 0 to 2π
+Φ: 0 to pπ
 
-however if we do
+However if we do:
+theta: 0 to π
+phi: 0 to 2π
+We get a semicircle that we rotate (as opposed to cirle)
 
-theta: 0 to pi, phi: 0 to 2pi, we get a semicircle that we rotate (as opposed to cirle)
-
-but both will work!
+But both will work!
 ```
 
 ## 03/14/18 | Aim: --
 
 Pseudocode for semicricle/circle
 ```
-for theta: 0 to pi:
-	x = rcostheta + cx
-	y = rsinthetacosphi + cy
-	z = rsinthetasinphi + cz
+for θ in range 0 to π:
+	x = rcosθ + cx
+	y = rsinθcosΦ + cy
+	z = rsinθsinΦ + cz
 ```
 
 This entire thing makes a circle/semi
 ```
-for phi: theta to 2pi:
-	for theta: 0 to pi:
-		x = rcostheta + cx
-		y = rsinthetacosphi + cy
-		z = rsinthetasinphi + cz
+for Φ in range θ to 2π:
+	for θ: 0 to π:
+		x = rcosθ + cx
+		y = rsinθcosΦ + cy
+		z = rsinθsinΦ + cz
 ```
 __Torus__
 
 Defining points
-- surface points
+- Surface points
 
 Given information
-- center (cx, cy, cz)
+- Center (cx, cy, cz)
 - R (radius from center of to torus to center of the face of the cross section of the torus)
 - r (radius of the cross section face)
 
@@ -498,18 +501,18 @@ Equation
 
 First, generate circle and move it by big R
 
-rcostheta + R
+rcosθ + R
 
-rsintheta
+rsinθ
 
-theta
+θ
 
 ```
-y rot               circle+ move        torus
-[cosphi 0 sinphi]   [rcostheta + R]     cosphi(rcostheta+R) + cx = x
-[0 1 phi]           [rsintheta]         rsintheta           + cy = y
-[-sinphi 0 cosphi]  [0]                 -sinphi(rcostheta+r) + cz = z
+y-rot               	circle + move        torus
+[cosΦ 	0   sinphi]    [rcosθ + R]     cosΦ(rcosθ+R) + cx = x
+[0      1 	 Φ]      [rsinθ]       rsinθ         + cy = y
+[-sinΦ  0     cosΦ]        [0]         -sinΦ(rcosθ+r) + cz = z
 
-theta: 0 to 2pi
-phi:  0 to 2pi
+θ in range 0 to 2π
+Φ in range 0 to 2π
 ```
