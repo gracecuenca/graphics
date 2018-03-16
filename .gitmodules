@@ -1,0 +1,21 @@
+[submodule "work01_pixels"]
+	path = work01_pixels
+	url = git@github.com:gracecuenca/pixels.git
+[submodule "work02_line"]
+	path = work02_line
+	url = git@github.com:gracecuenca/line.git
+[submodule "work03_matrix"]
+	path = work03_matrix
+	url = git@github.com:gracecuenca/matrix.git
+[submodule "work04_transformations"]
+	path = work04_transformations
+	url = git@github.com:gracecuenca/transformers.git
+[submodule "work05_curves"]
+	path = work05_curves
+	url = git@github.com:gracecuenca/curvey.git
+[submodule "third_dimension"]
+	path = third_dimension
+	url = git@github.com:gracecuenca/third_dimension.git
+[submodule "work06_3d"]
+	path = work06_3d
+	url = git@github.com:gracecuenca/third_dimension.git
