@@ -473,7 +473,7 @@ for θ in range 0 to π:
 
 This entire thing makes a circle/semi
 ```
-for Φ in range θ to 2π:
+for Φ in range 0 to 2π:
 	for θ: 0 to π:
 		x = rcosθ + cx
 		y = rsinθcosΦ + cy
@@ -510,7 +510,7 @@ rsinθ
 ```
 y-rot               	circle + move        torus
 [cosΦ 	0   sinphi]    [rcosθ + R]     cosΦ(rcosθ+R) + cx = x
-[0      1 	 Φ]      [rsinθ]       rsinθ         + cy = y
+[0      1 	 Φ]   ・   [rsinθ]       rsinθ        + cy = y
 [-sinΦ  0     cosΦ]        [0]         -sinΦ(rcosθ+r) + cz = z
 
 θ in range 0 to 2π
