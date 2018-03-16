@@ -13,9 +13,6 @@
 [submodule "work05_curves"]
 	path = work05_curves
 	url = git@github.com:gracecuenca/curvey.git
-[submodule "third_dimension"]
-	path = third_dimension
-	url = git@github.com:gracecuenca/third_dimension.git
 [submodule "work06_3d"]
 	path = work06_3d
 	url = git@github.com:gracecuenca/third_dimension.git
