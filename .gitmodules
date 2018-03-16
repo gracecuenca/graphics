@@ -1,18 +1,18 @@
-[submodule "work01"]
-	path = work01
-	url = git@github.com:gracecuenca/graphics_01.git
-[submodule "work02"]
-	path = work02
-	url = git@github.com:gracecuenca/graphics_w2.git
-[submodule "work03"]
-	path = work03
-	url = git@github.com:gracecuenca/graphics_w3.git
-[submodule "work04"]
-	path = work04
-	url = https://github.com/gracecuenca/graphics_w4.git
-[submodule "work05"]
-	path = work05
-	url = https://github.com/gracecuenca/graphics_w5.git
-[submodule "work06"]
-	path = work06
-	url = git@github.com:gracecuenca/graphics_w6.git
+[submodule "pixels_work01"]
+	path = pixels_work01
+	url = git@github.com:gracecuenca/pixels.git
+[submodule "line_work02"]
+	path = line_work02
+	url = git@github.com:gracecuenca/line.git
+[submodule "matrix_work03"]
+	path = matrix_work03
+	url = git@github.com:gracecuenca/matrix.git
+[submodule "transformers_work04"]
+	path = transformers_work04
+	url = https://github.com/gracecuenca/transformers.git
+[submodule "curvey_work05"]
+	path = curvey_work05
+	url = https://github.com/gracecuenca/curvey.git
+[submodule "third_dimension_work06"]
+	path = third_dimension_work06
+	url = git@github.com:gracecuenca/third_dimension.git
