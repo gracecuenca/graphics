@@ -50,7 +50,7 @@ __PPM (Portable PixMap)__
 - All whitespace is equivalent
 - __NOTE: THESE FILES CAN GET VERY LARGE SO DO NOT PUSH THE .PPM FILES TO GITHUB REPO__
 
-example file (in .ppm file): 
+example file (in .ppm file):
 
 ```ppm
 P3 //tells you what kind of file it is. P3 tells you it's in ASCII
@@ -68,7 +68,7 @@ then, raster pixel data follows
   - x0 < x1 (we're always going to draw the line from left to right)
   - Octant Cartesian Coordinate System
   - Start at Octant I (slope is between 0 and 1)
-  
+
 ![OCTANT](https://i.stack.imgur.com/Gk616.jpg)
 
 ![GRAPH](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Bresenham.svg/300px-Bresenham.svg.png)
@@ -181,7 +181,7 @@ Same goes for Octants VIII and VII
 ## 02/12/18 | Aim: --
 ### Represeting Image Data
 
-__Edge List (Edge Matrix)__ 
+__Edge List (Edge Matrix)__
 - Images are stored as a list of points where each two points define a line
 - [ P0, P1, P1, P2, P2, P0 ] in whcih each P represents a set of (x,y,z) coordinates (will need z coordinate later for rotations)
 
@@ -196,7 +196,7 @@ __Matrix Multiplication__
   - M・N not necessarily equal to N・M
 - __Multiplicative Identity__
   - I・M = M
-  
+
 ![IDENTITY MATRIX](http://www.statisticslectures.com/images/identity2.gif)
 
 ### Transformations
@@ -334,7 +334,7 @@ But this doesn't help us for other shapes, only circles.
 Let's say we want to generalize the formula for cubics
 
 for t between 0 and 1, t++ step:
-  
+
   x = Axt^3 + Bxt^2 + Cxt + Dx
   y = Ayt^3 + Byt^2 + Cyt + Dy
 
@@ -368,19 +368,19 @@ In matrix form:
 ## 03/07/18 | Aim: --
 ### Bezier Curves
 
-Goal is still 
+Goal is still
 
 for t between 0 and 1, t++ step:
-  
+
   x = Axt^3 + Bxt^2 + Cxt + Dx
   y = Ayt^3 + Byt^2 + Cyt + Dy
- 
+
 But we use different information
 
 - Given n+1 points, where n = degree of the curve (aka highest power)
 - For a line, we would need two points, namely the beginning point P0 and the endpoint P1
   - There would be a point Pt on the line and Pt moves along the line P0P1
-  - Pt = (1-t)P0 + tP1 
+  - Pt = (1-t)P0 + tP1
   - this line is being create and they are inversely related. As t gets bigger, P1 starts to get more power than P0
 - Quadratic
   - I have two Bezeir lines that are static, and we move along the lines connecting points on the lines
@@ -412,7 +412,7 @@ __3D Shapes__
 __Box__
 
 Defining points
-- 8 vertices 
+- 8 vertices
 
 Given information: size information
 - width (x)
@@ -429,7 +429,7 @@ Defining Points
 
 Givens
 - Center
-- Radius 
+- Radius
 
 Generate points by rotating a circle
 - Rotating about x-axis/ y-axis
@@ -449,13 +449,13 @@ __X Rotation__
 
 θ: angle of creation
 Φ: angle of circle rotation
-ranges: 
+ranges:
 θ: 0 to 2π
 Φ: 0 to pπ
 
 However if we do:
-theta: 0 to π
-phi: 0 to 2π
+θ: 0 to π
+Φ: 0 to 2π
 We get a semicircle that we rotate (as opposed to cirle)
 
 But both will work!
@@ -510,9 +510,58 @@ rsinθ
 ```
 y-rot               	circle + move        torus
 [cosΦ 	0   sinphi]    [rcosθ + R]     cosΦ(rcosθ+R) + cx = x
-[0      1 	 Φ]   ・   [rsinθ]       rsinθ        + cy = y
-[-sinΦ  0     cosΦ]        [0]         -sinΦ(rcosθ+r) + cz = z
+[0      1 	 Φ]   ・      [rsinθ]       rsinθ        + cy = y
+[-sinΦ  0     cosΦ]       [0]         -sinΦ(rcosθ+r) + cz = z
 
 θ in range 0 to 2π
 Φ in range 0 to 2π
 ```
+
+## 03/20/18 | Aim: --
+
+__Vector Math "Review"__
+
+Use < > (angle brackets)
+
+(x,y,z): just a point
+
+<x,y,z>: magnitude + direction
+
+- magnitude: size of the vector
+- (insert vector A image)
+- denoted as ||A||
+- to get the magnitude, do sqrt(x^2 + y^2 + z^2) aka pythagorean theorem on the x and y components
+- unit vector has a magnitude of 1, really just conveying the direction of the vector
+- normalized vector: turning a non-unit vector into a unit vector
+- if you have vector A and want to normalize it to A hat = 1/||A|| ・<Ax,Ay,Az>
+
+__Vector Multiplication__
+
+__Dot Product__
+
+(insert two vector diagram)
+
+A ・ B = ||A|| ・ ||B||
+
+If A and B are both pointing in the same direction, this is indeed the case
+
+There is angle θ between A and B and as theta gets bigger, the dot product gets smaller
+
+A ・ B = ||A|| ・ ||B|| ・ cosθ (same as B ・ A)
+
+ALSO same as AxBx + AyBy + AzBz which is the way we'll be writing it
+
+__Cross Product__
+
+(insert two vector diagram with a cross product)
+
+You get back a vector (something with both direction and magnitude)
+
+Cannot exist unless you are in at least three dimensions
+
+- perpendicular to the two other vectors
+- the magnitude is equal to the area of the parallelogram formed by the two vectors
+- you can get the cross product by doing ||A||||B||sinθ
+- opposite relationship with θ (as θ gets bigger, area gets bigger)
+- this results in scalar
+- to get vector: ||A||||B||sinθ and multiply by a unit vector
