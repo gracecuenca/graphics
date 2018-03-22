@@ -517,7 +517,7 @@ y-rot               	circle + move        torus
 Φ in range 0 to 2π
 ```
 
-## 03/20/18 | Aim: --
+## 03/20/18 - 03/22/18 | Aim: --
 
 __Vector Math "Review"__
 
@@ -565,3 +565,36 @@ Cannot exist unless you are in at least three dimensions
 - opposite relationship with θ (as θ gets bigger, area gets bigger)
 - this results in scalar
 - to get vector: ||A||||B||sinθ and multiply by a unit vector
+- use Right Hand Rule to see where vector ends up
+
+Vector A x Vector B = <AyBz - AzBy, AzBx - AxBz, AxBy - AyBx>
+
+- Finding a vector between two points
+- If you have a vector PQ, in order to find the point, you do <Q-P> (aka subtract components)
+- If you have the vector QP instead, direction is important so you do <P-Q>
+
+__Two options with creating Polygons__
+
+__Wireframe Mesh__
+- Shape definiton is created by connecting __edges__ between points on the surface
+- These edges are lines that lack certain properties we might find useful, reason why we turn to polygon meshes
+
+__Polygon Mesh__
+- shape defintion is created by connecting points on the surface to create polygons (usually triangles or quadrilaterals)
+- these help us with shading, lighting, filling in a polygon, perception of depth, etc...
+
+But in order to do this we have to change the way we make things
+
+Edge matrix -> Polygon Matrix
+
+__Polgygon Matrix__
+
+Go through a triangle at a time
+
+Old schema:
+
+add_box -> add_edge -> add_point -> draw_lines -> draw_line -> plot
+
+New schema:
+
+add_box -> add_triangle -> add_point -> draw_triangle -> draw_line -> plot 
