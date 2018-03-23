@@ -517,7 +517,7 @@ y-rot               	circle + move        torus
 Φ in range 0 to 2π
 ```
 
-## 03/20/18 - 03/22/18 | Aim: --
+## 03/20/18 - 03/23/18 | Aim: --
 
 __Vector Math "Review"__
 
@@ -598,3 +598,14 @@ add_box -> add_edge -> add_point -> draw_lines -> draw_line -> plot
 New schema:
 
 add_box -> add_triangle -> add_point -> draw_triangle -> draw_line -> plot 
+
+- add points counterclockwise
+
+For a box, add 12 triangles (2 on each face)
+
+For a sphere, we rotate about the x axis in a positive direction (towards us). The next point will come in front of the previous point (so forward, toward us)
+- go up to an include zero/one on both ends
+- this will cause overlapping points and some degerate triangles
+
+For a torus, the next point will be behind the previous point
+- no overlapping points in torus so no degenerate triangles
