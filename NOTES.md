@@ -609,3 +609,39 @@ For a sphere, we rotate about the x axis in a positive direction (towards us). T
 
 For a torus, the next point will be behind the previous point
 - no overlapping points in torus so no degenerate triangles
+
+## 03/28/18| Aim: Backface Culling
+
+__Backface Culling__
+- Only draw the forward facing surfaces
+- Now the question is: How can we tell which triangles are facing you and which aren't?
+
+Let's say we have a surface vector and have a vector perpendicular to the surface vector (aka surface normal) and is perpendicualr to the polygon
+
+But, where we are looking at the surface also affects which side is facing us. 
+
+We introduce a third vector, V, which is a view vector and is the vector from the surface to the eye/camera
+
+The angle between the surface normal vector and the view vector is what tells us whether it is facing us or not. 
+
+__Backface Culling Procedure__
+- Calculate surface normal vector
+- Find θ
+- If -90 < θ < 90, we can see the face so draw the polygon
+
+In order to calculate the surface normal vector, find cross product. You have two edges on the triangle that share a point and then you can get the surface normal vector.
+
+In order to find θ, you do the dot product of surface normal vector and view vector which is the magnitude of each vector times each other times the cos of θ
+
+cosθ > 0 if -90 < θ < 90
+- if cosθ < 0, it's negative and we don't draw it (not facing us!)
+- if cosθ > 0, it's positive and we want to draw it (facing us!)
+
+The entire thing will be positive if it's facing us. The entire thing will be negative if it isn't facing us.
+
+View vector = <0,0,1> (good view vector to start with, it is a fixed vector)
+Normal vector <x,y,z>
+
+DOT PRODUCT IS: 0 + 0 + Z
+
+Thus, you don't even need to calculate the dot product. You just need z. If z is positive, it's a front face. If z is negative, it's a back face.
