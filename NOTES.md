@@ -640,6 +640,7 @@ cosθ > 0 if -90 < θ < 90
 The entire thing will be positive if it's facing us. The entire thing will be negative if it isn't facing us.
 
 View vector = <0,0,1> (good view vector to start with, it is a fixed vector)
+
 Normal vector <x,y,z>
 
 DOT PRODUCT IS: 0 + 0 + Z
