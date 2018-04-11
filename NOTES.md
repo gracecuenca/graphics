@@ -646,3 +646,30 @@ Normal vector <x,y,z>
 DOT PRODUCT IS: 0 + 0 + Z
 
 Thus, you don't even need to calculate the dot product. You just need z. If z is positive, it's a front face. If z is negative, it's a back face.
+
+## 04/11/18| Aim: Relative Coordinate System
+
+- Current transformations are applied to all the shapes in an image 
+- In a relative coordinate system we can apply transformations to individual or groups of shapes
+- Tranformations wil be applied to the "world" or current coordinate system (aka you cahnge the coordinates or where you are and THEN you draw the object rather than the other way around)
+
+__Drawing in a RCS__
+- Generate the polygons or edges 
+- Apply the current coordinate system to those points 
+- Draw the polygons or edges to the image
+
+Original process:
+```
+sphere
+rotate
+move
+apply
+display
+```
+
+New process:
+```
+rotate
+move
+sphere
+```
