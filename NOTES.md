@@ -647,9 +647,18 @@ DOT PRODUCT IS: 0 + 0 + Z
 
 Thus, you don't even need to calculate the dot product. You just need z. If z is positive, it's a front face. If z is negative, it's a back face.
 
-## 04/11/18| Aim: Relative Coordinate System
+## 04/11/18 - 04/12/18 | Aim: Relative Coordinate System (Coordinate Stack System)
 
 - Current transformations are applied to all the shapes in an image 
+
+```
+| 1 0 0 0 |   |  2  0  0  50  |
+| 0 1 0 0 | · |  0  2  0  100 |
+| 0 0 1 0 |   |  0  0  2  0   |
+| 0 0 0 1 |   |  0  0  0  1   |
+     A               B
+```
+
 - In a relative coordinate system we can apply transformations to individual or groups of shapes
 - Tranformations wil be applied to the "world" or current coordinate system (aka you cahnge the coordinates or where you are and THEN you draw the object rather than the other way around)
 
@@ -674,8 +683,15 @@ move
 sphere
 ```
 
-## 04/12/18| Aim: Coordinate System Stack
+__Coordinate Stack System__
+- Will maintain a stack of coordinate systems
+- Top: the most current system
+- Bottom: identity matrix (global system)
+- All transformations modify the top and none of the other matrices
+- Push: pushes a __copy__ of the top
 
-```
-//g e t n o t e s
-```
+There is distinction between transformation ・ top and top ・ transformation
+
+Latter is correct way to go
+
+
