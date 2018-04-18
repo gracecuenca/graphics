@@ -694,7 +694,7 @@ There is distinction between transformation ・ top and top ・ transformation
 
 Latter is correct way to go
 
-## 04/17/18 | Aim: Filling in Shapes
+## 04/17/18 - 04/18/18 | Aim: Filling in Shapes
 
 __Scanline Conversion__
 
@@ -708,3 +708,23 @@ The process of filling a polygon by drawing consecutive horizontal (or vertical)
 - X0 starts at: Xb
 - X0 starts at: Xt
 - X+=  deltasomething (negative slope reciprocal)
+
+delatsomething = (Xt - Xb)/(Yt - Yb) (reciprocal)
+
+X1 is either on the line MT until y = Ym and then it is on MB
+
+We will use the y value as our trigger because there will be no rounding errors with this
+
+X1 += delta1
+
+delta1 = (Xm - Xb)/(Ym - Yb)
+
+or 
+
+delta1 = (Xt - Xm)/(Yt - Ym)
+
+Check for dividing by zero in the cases
+
+Don't forget X = Xm
+
+
