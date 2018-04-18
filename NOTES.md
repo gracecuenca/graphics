@@ -694,4 +694,17 @@ There is distinction between transformation ・ top and top ・ transformation
 
 Latter is correct way to go
 
+## 04/17/18 | Aim: Filling in Shapes
 
+__Scanline Conversion__
+
+The process of filling a polygon by drawing consecutive horizontal (or vertical) lines.
+- Need to find the top, middle, and bottom
+- Need to find the endpoints of each scanline
+- Y starts at: Yb
+- Y ends at: Yt
+- Y+=1 everytime
+- X0 is on the line TB (top bottom)
+- X0 starts at: Xb
+- X0 starts at: Xt
+- X+=  deltasomething (negative slope reciprocal)
