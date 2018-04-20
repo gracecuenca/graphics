@@ -22,3 +22,6 @@
 [submodule "work08_cstack"]
 	path = work08_cstack
 	url = git@github.com:gracecuenca/coordinate_stack.git
+[submodule "work09_solids"]
+	path = work09_solids
+	url = git@github.com:gracecuenca/filled_solids.git
