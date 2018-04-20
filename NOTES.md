@@ -727,4 +727,20 @@ Check for dividing by zero in the cases
 
 Don't forget X = Xm
 
+## 04/19/ 18 | Aim: Z Buffer
 
+Screen maps to Z-Buffer: color maps to Z value
+
+__Z Buffer__
+- 2D Array of floating point values that directly correspond to the screen
+- Only stores current Z value of what's at that current pixel
+- Before modifying the screen, we will check the Z-Buffer
+- We want our reseted Z-Buffer values to be negative infinity so that everything is in front of it
+- Z values should be initialized to the lowest possible value
+- In every argument that we have to pass the screen, we now also need to pass the z-buffer as well
+- Also, now we also have to calculate the Z value in every place basically
+
+__Functions with Significant Changes__
+- plot must check/ modify the z-buffer
+- draw_line must calculate z values (currently just does x and y)
+- scanline convert must calculate z values
