@@ -19,3 +19,6 @@
 [submodule "work07_polygons"]
 	path = work07_polygons
 	url = git@github.com:gracecuenca/polygonal_matrix.git
+[submodule "work08_cstack"]
+	path = work08_cstack
+	url = git@github.com:gracecuenca/coordinate_stack.git
