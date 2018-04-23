@@ -14,7 +14,7 @@ The amount of data used to represent a single pixel
 ### Other Color Spaces
 __RGBA__: red, green, blue + alpha (transparency)
 
-__HSB__: hue, saturation, bightness
+__HSB__: hue, saturation, brightness
 - hue: angle measurement
 - saturation: radius of base of cone
 - brightness: height of cone
@@ -41,7 +41,7 @@ Compressed formats use a compression algorithm to minimize file size (don't chan
 - Lossless vs. Lossy
   - Lossless compression algorithms contain enough information to exactly recreate the original image
     - PNG (Portable network Graphics), GIF (Graphics interchange Format)
-  - Lossy compression Algirthms do not retain all the details of the original image (generally avergae out groups of pixels and make that an entire chunk a single pixel)
+  - Lossy compression Algorithms do not retain all the details of the original image (generally average out groups of pixels and make that an entire chunk a single pixel)
     - JPEG (Joint Photographic Experts Group)
 
 __PPM (Portable PixMap)__
@@ -55,7 +55,7 @@ example file (in .ppm file):
 ```ppm
 P3 //tells you what kind of file it is. P3 tells you it's in ASCII
 4 3 //resolution, width followed by height in pixels
-255 //mximum color value
+255 //maximum color value
 //all of this is in the header^^
 then, raster pixel data follows
 ```
@@ -170,7 +170,7 @@ x = x0, y = y0
 d = A + 2B
 while y <= y1
   plot (x,y)
-  if d < 0 //this means that ourmidpoint is to the left of the line
+  if d < 0 //this means that our midpoint is to the left of the line
     x++
     d+=2A
   y++
@@ -179,11 +179,11 @@ while y <= y1
 Same goes for Octants VIII and VII
 
 ## 02/12/18 | Aim: --
-### Represeting Image Data
+### Representing Image Data
 
 __Edge List (Edge Matrix)__
 - Images are stored as a list of points where each two points define a line
-- [ P0, P1, P1, P2, P2, P0 ] in whcih each P represents a set of (x,y,z) coordinates (will need z coordinate later for rotations)
+- [ P0, P1, P1, P2, P2, P0 ] in which each P represents a set of (x,y,z) coordinates (will need z coordinate later for rotations)
 
 ## 02/13/18 | Aim: --
 ### Matrix Math for Graphs
@@ -597,7 +597,7 @@ add_box -> add_edge -> add_point -> draw_lines -> draw_line -> plot
 
 New schema:
 
-add_box -> add_triangle -> add_point -> draw_triangle -> draw_line -> plot 
+add_box -> add_triangle -> add_point -> draw_triangle -> draw_line -> plot
 
 - add points counterclockwise
 
@@ -616,13 +616,13 @@ __Backface Culling__
 - Only draw the forward facing surfaces
 - Now the question is: How can we tell which triangles are facing you and which aren't?
 
-Let's say we have a surface vector and have a vector perpendicular to the surface vector (aka surface normal) and is perpendicualr to the polygon
+Let's say we have a surface vector and have a vector perpendicular to the surface vector (aka surface normal) and is perpendicular to the polygon
 
-But, where we are looking at the surface also affects which side is facing us. 
+But, where we are looking at the surface also affects which side is facing us.
 
 We introduce a third vector, V, which is a view vector and is the vector from the surface to the eye/camera
 
-The angle between the surface normal vector and the view vector is what tells us whether it is facing us or not. 
+The angle between the surface normal vector and the view vector is what tells us whether it is facing us or not.
 
 __Backface Culling Procedure__
 - Calculate surface normal vector
@@ -649,7 +649,7 @@ Thus, you don't even need to calculate the dot product. You just need z. If z is
 
 ## 04/11/18 - 04/12/18 | Aim: Relative Coordinate System (Coordinate Stack System)
 
-- Current transformations are applied to all the shapes in an image 
+- Current transformations are applied to all the shapes in an image
 
 ```
 | 1 0 0 0 |   |  2  0  0  50  |
@@ -660,11 +660,11 @@ Thus, you don't even need to calculate the dot product. You just need z. If z is
 ```
 
 - In a relative coordinate system we can apply transformations to individual or groups of shapes
-- Tranformations wil be applied to the "world" or current coordinate system (aka you cahnge the coordinates or where you are and THEN you draw the object rather than the other way around)
+- Transformations will be applied to the "world" or current coordinate system (aka you change the coordinates or where you are and THEN you draw the object rather than the other way around)
 
 __Drawing in a RCS__
-- Generate the polygons or edges 
-- Apply the current coordinate system to those points 
+- Generate the polygons or edges
+- Apply the current coordinate system to those points
 - Draw the polygons or edges to the image
 
 Original process:
@@ -703,15 +703,15 @@ The process of filling a polygon by drawing consecutive horizontal (or vertical)
 - Need to find the endpoints of each scanline
 - Y starts at: Yb
 - Y ends at: Yt
-- Y+=1 everytime
+- Y+=1 every time
 - X0 is on the line TB (top bottom)
 - X0 starts at: Xb
-- X0 starts at: Xt
-- X+=  deltasomething (negative slope reciprocal)
+- X1 starts at: Xt
+- X0+=  d0 (negative slope reciprocal)
 
-delatsomething = (Xt - Xb)/(Yt - Yb) (reciprocal)
+d0 = (Xt - Xb)/(Yt - Yb) (reciprocal)
 
-X1 is either on the line MT until y = Ym and then it is on MB
+X1 is on the line MT until y = Ym and then it is on MB
 
 We will use the y value as our trigger because there will be no rounding errors with this
 
@@ -719,7 +719,7 @@ X1 += delta1
 
 delta1 = (Xm - Xb)/(Ym - Yb)
 
-or 
+or
 
 delta1 = (Xt - Xm)/(Yt - Ym)
 
