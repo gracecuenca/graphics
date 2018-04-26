@@ -727,7 +727,7 @@ Check for dividing by zero in the cases
 
 Don't forget X = Xm
 
-## 04/19/ 18 | Aim: Z Buffer
+## 04/19/18 | Aim: Z Buffer
 
 Screen maps to Z-Buffer: color maps to Z value
 
@@ -744,3 +744,40 @@ __Functions with Significant Changes__
 - plot must check/ modify the z-buffer
 - draw_line must calculate z values (currently just does x and y)
 - scanline convert must calculate z values
+
+## 04/26/18 | Aim: Lighting
+
+__Lighting__
+
+Realistic lighting models find colors based on
+- The color, intensity, and location of light(s)
+- The reflective properties of objects
+
+There are two different kinds of light in our images
+- Ambient Light: general background lighting
+  - comes from everywhere (not a specific source)
+  - can be represented by a regular color value (0 - 255)
+- Point light sources: 
+  - come from a distinct origin
+  - we will assume that origin is very far away (so that if two objects are in existence, they will be reflecting the same direction)
+  - represented by color and and location
+  - you can have multiple point light sources in an image
+ 
+
+Nothing we draw will be emitting its own light (rip lightbulb)
+
+__Phong Reflection Model__
+  - Models realistic reflections by breaking reflection dpwn into three parts: ambient, diffuse, specular
+  - I = Ambient + Diffuse + Specular (if ever over 255, set it to 255)
+  - Diffuse and Specular both make up the point light source
+  - I stands for illumination (we are getting a color based on teh illumination)
+ 
+ __Ambient__
+ - A: Ambient Light Value (0 - 255)
+ - Ka: Constant of ambient reflection (0 - 1) //a percentage
+ - Ambient = A * Ka
+ 
+ __Diffuse Reflection__
+ - Reflection of a point source
+ - Reflected in all directions evenly (even though it comes from a single point)
+ - Matte/dull finish
