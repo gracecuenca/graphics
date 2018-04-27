@@ -745,7 +745,7 @@ __Functions with Significant Changes__
 - draw_line must calculate z values (currently just does x and y)
 - scanline convert must calculate z values
 
-## 04/26/18 | Aim: Lighting
+## 04/26/18 - 04/27/18 | Aim: Lighting
 
 __Lighting__
 
@@ -771,6 +771,7 @@ __Phong Reflection Model__
   - I = Ambient + Diffuse + Specular (if ever over 255, set it to 255)
   - Diffuse and Specular both make up the point light source
   - I stands for illumination (we are getting a color based on teh illumination)
+  - I = AKa + PKd(L(normalized) * N(normalized))
  
  __Ambient__
  - A: Ambient Light Value (0 - 255)
@@ -781,3 +782,39 @@ __Phong Reflection Model__
  - Reflection of a point source
  - Reflected in all directions evenly (even though it comes from a single point)
  - Matte/dull finish
+ - Kd: constant of diffuse reflection
+ - P: color of point light source
+ 
+ ```
+ vector L   vector n
+\	|
+  \	|
+    \	|
+      \ |
+        \|
+ ```
+ 
+- Theta between the vector and the surface normal
+- The closer the light vector is to the Normal vector, that means that the surface is directly pointing at the light so there should be the strongest reflection
+- Angle tells us is the surface facing the light
+- Smaller the theta, the stronger the light
+- costheta = L (normalized) * n (normalized)
+
+__Specular Reflection__
+- Reflection of a point light source in a specific direction
+- Models glossy/ shiny surfaces
+
+ ```
+vector L   vector R
+\	|      /
+  \	|     /
+    \	|    /
+      \ |  /
+        \|/ 
+ ```
+
+- Ks: constant of specular reflection
+- P: color of point light source
+- We also need to add another vector here: the view vector
+- The angle between the view vector and the reflected vector is important
+- cos(anglebetween r and v vector) = r(normalized) * v(normalized)
