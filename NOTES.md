@@ -745,7 +745,7 @@ __Functions with Significant Changes__
 - draw_line must calculate z values (currently just does x and y)
 - scanline convert must calculate z values
 
-## 04/26/18 - 04/27/18 | Aim: Lighting
+## 04/26/18 - 04/30/18 | Aim: Lighting & Phong Reflection Model
 
 __Lighting__
 
@@ -818,3 +818,44 @@ vector L   vector R
 - We also need to add another vector here: the view vector
 - The angle between the view vector and the reflected vector is important
 - cos(anglebetween r and v vector) = r(normalized) * v(normalized)
+
+![PRM](http://slideplayer.com/slide/794949/3/images/3/Phong+Reflection+Model.jpg)
+
+Angle between R vector and V vector is very important (let's call this alpha)
+
+cosalpha = R(normalized) * V(normalized)
+
+we don’t know what R is
+
+2T - L = R
+T + S = R
+T - L = S
+
+costheta = magnitude of T/ magnitude of L(hat)
+
+L(hat) is normalized so it’s value is one
+
+so costheta is actually just magnitude of T
+
+and costheta = dot product of N(hat) and L(hat)
+
+T(vector) = (N(hat)*(L(hat)) x N(hat) (multiply by N to get direction of the vector)
+
+so R(hat) = 2(N(hat)*L(hat))x N(hat) - L(hat)
+
+above operation was projection of L onto N (to get T)
+
+cosalpha = R(hat) * V(hat)
+
+(hat) indicates a normalized vector
+
+Specular = PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*v(hat)]
+
+If cosalpha is ever negative, that means that the angle between the refelction and the viewer is greater than 90, so it is pointing away from the viewer
+
+However, in real life, specular light sharply changes, which is not accurately represented through the gradual change shown in the cosine graph. 
+
+Specular = PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x (in order to simulate narrow reflection)
+
+I = AKa + PKd(N(hat*l(hat)) + PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x
+
