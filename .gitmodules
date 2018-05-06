@@ -25,3 +25,6 @@
 [submodule "work09_solids"]
 	path = work09_solids
 	url = git@github.com:gracecuenca/filled_solids.git
+[submodule "work10_lighting"]
+	path = work10_lighting
+	url = git@github.com:gracecuenca/lighting.git
