@@ -859,3 +859,50 @@ Specular = PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x (in order to simula
 
 I = AKa + PKd(N(hat*l(hat)) + PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x
 
+## 05/07/18 | Aim: Compiler
+
+__Five Different Tools within Compiler__
+
+Lexer -> Syntactic Analyzer -> Semantic Analyzer -> Optimizer* -> Code Generator
+
+* We will not be implementing an optimizer
+
+__Lexer__
+- Performs lexical analysis
+- Will know what valid tokens there are in a language
+  - Keywords: (ex. if, else, for)
+  - Primitive operators
+  - Numeric literals
+  - Grouping symbols
+  - Comments
+  - Identifiers (functions and variables)
+  - String literals
+- Reads in source code and ouputs a token list
+
+```
+//c code
+
+int main(){
+	//cool!
+	long x = 5 + 6;
+	printf("%d",x);
+	return x;
+}
+```
+
+```
+token list:
+int
+main
+(
+)
+{
+long
+x
+=
+5
++
+6
+;
+//and so on.... (notice how the comment is disregarded)
+```
