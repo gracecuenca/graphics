@@ -859,13 +859,20 @@ Specular = PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x (in order to simula
 
 I = AKa + PKd(N(hat*l(hat)) + PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x
 
-## 05/07/18 | Aim: Compiler
+## 05/07/18 - 05/08/18 | Aim: Compiler
 
 __Five Different Tools within Compiler__
 
 Lexer -> Syntactic Analyzer -> Semantic Analyzer -> Optimizer* -> Code Generator
 
 * We will not be implementing an optimizer
+
+__Compiler Parts__
+
+| name | input | output |
+| ------------- | ------------- | ------------- |
+| lexer | surce code (text) | token list |
+
 
 __Lexer__
 - Performs lexical analysis
@@ -878,6 +885,7 @@ __Lexer__
   - Identifiers (functions and variables)
   - String literals
 - Reads in source code and ouputs a token list
+- Tools: c < lex, flex (we'll be using flex because it's open source)
 
 ```
 //c code
@@ -905,4 +913,15 @@ x
 6
 ;
 //and so on.... (notice how the comment is disregarded)
+```
+
+Regular expressions: good for pattern matching
+
+ex:
+```
+ID [a-zA-Z][a-zA-Z0-9_]* : can be any combination of letters or numbers but must begin with a non-numerical thing
+
+[q5]* : 0 or more combinations of q or 5
+[q5]+ : 1 or more combinations of q or 5
+[q-t] : defines the range from q to t inclusive
 ```
