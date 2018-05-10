@@ -859,7 +859,7 @@ Specular = PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x (in order to simula
 
 I = AKa + PKd(N(hat*l(hat)) + PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x
 
-## 05/07/18 - 05/08/18 | Aim: Compiler
+## 05/07/18 - 05/10/18 | Aim: Compiler
 
 __Five Different Tools within Compiler__
 
@@ -871,8 +871,9 @@ __Compiler Parts__
 
 | name | input | output |
 | ------------- | ------------- | ------------- |
-| lexer | surce code (text) | token list |
-
+| lexer | source code (text) | token list |
+| parser | token list | parse tree |
+| semantic analyzer | parse tree | operation list & symbol table |
 
 __Lexer__
 - Performs lexical analysis
@@ -925,3 +926,19 @@ ID [a-zA-Z][a-zA-Z0-9_]* : can be any combination of letters or numbers but must
 [q5]+ : 1 or more combinations of q or 5
 [q-t] : defines the range from q to t inclusive
 ```
+
+__Semantic Anlayzer__
+- Evaluates the syntax tree to create a list of operations
+- Creates a symbol table containing all of the identifiers and associated information
+- Type errors are usually caught here
+
+__Operation List__
+- More operators make a deeper tree
+- The leaves are all values, operations cause branches
+
+__Symbol Table__
+- main is a symbol
+
+
+
+__Symbol Table__
