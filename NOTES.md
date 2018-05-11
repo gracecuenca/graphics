@@ -859,13 +859,15 @@ Specular = PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x (in order to simula
 
 I = AKa + PKd(N(hat*l(hat)) + PKs[(2(N(hat)*L(hat))x N(hat) - L(hat))*V(hat)]^x
 
-## 05/07/18 - 05/10/18 | Aim: Compiler
+## 05/07/18 - 05/11/18 | Aim: Compiler
 
 __Five Different Tools within Compiler__
 
 Lexer -> Syntactic Analyzer -> Semantic Analyzer -> Optimizer* -> Code Generator
 
 * We will not be implementing an optimizer
+
+source code --lexer--> token list --parser--> syntax tree --semantic analyzer--> operation list/symbol table --optimizer--> optimized operarion list & symbol table --code generator--> binary executable (the thing that runs, are assembly that have specific functions)
 
 __Compiler Parts__
 
@@ -939,6 +941,31 @@ __Operation List__
 __Symbol Table__
 - main is a symbol
 
-
-
 __Symbol Table__
+
+__Optimzer__
+
+Scans through operations and replaces things to make them more efficient (doesn't change the logic of the code though)
+
+__Code Generator__
+- translate the operation list into a series of assembly language instructions
+
+(f)lex: to create this portion: image script --lexer--> token list
+
+yacc/bison: --parser--> parse tree --semantic analyzer--> operation list & symbol table 
+
+--code generator--> images(s) !
+
+Essentially our goal is to create
+
+```
+push
+move
+sphere
+pop
+push
+box
+...
+```
+
+into an image!
