@@ -969,3 +969,35 @@ box
 ```
 
 into an image!
+
+## 05/17/18 | Aim: Animation
+
+__Animation__
+- Generate multiple images (frames) in order with small changes from one to the next
+- Apply transformations over time
+
+```
+|	|	|	|
+|*	| -->	|      *| //sample transformation
+|	|	|	|
+
+move 400 0 0
+
+|	|	|	| 	|	|	|	|	|	|
+|*	| -->	| *     | -->	|   *   | -->	|    *  | -->	|     * | 
+|	|	|	|	|	|	|	|	|	|
+
+move 400 0 0 0
+     400 0 0 .25
+     400 0 0 .5
+     400 0 0 .75
+     400 0 0 1
+//this entire thing is called a knob
+
+move 400 0 0 K0
+
+vary takes three arguments: knob, start frame, end frame, start value, end value 
+defines the knob behavior
+
+frames (integer): number of total frames
+```
