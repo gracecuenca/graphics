@@ -1001,3 +1001,37 @@ defines the knob behavior
 
 frames (integer): number of total frames
 ```
+
+## 05/18/18 | Aim: Animation Commands in MDL
+
+__Animation Commands in MDL__
+
+__transformation__ __args__ __knob__
+- if there is a __knob__, lookup value in smbol table and apply it to __args__
+- frames: takes number; set internal frames variable
+- basename: name; set internal basename variable
+- vary: knob, start frame, end frame, start value, end value; compute and store knob values for each frame
+
+__Potential MDL File Errors__
+- Multiple basenames *
+- Multiple frames *
+- No frames & vary command *
+- Valid vary frames; ex frame past total frame, frame value < 0, end < start
+- frames > 0 *
+- Warning: basename not set *
+
+* means caught in pass 1 (setup)
+
+__3 Pass Animation Framework__
+1. Setup
+- Looks for basenames, frames, vary 
+- Sets basename & frames
+- Catch errors
+2. Vary
+- Calculate every knob value for every frame (strictly works with vary)
+- Store values (not in symbol table, somewhere else)
+- Catch errors
+3. Draw
+- Loop through operations for each frame (ignore frames and vary because we already looped through them)
+- At the beginning of eahc loop, set the symbol table values for each knob
+- Automatically save each frame
