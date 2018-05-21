@@ -1002,7 +1002,7 @@ defines the knob behavior
 frames (integer): number of total frames
 ```
 
-## 05/18/18 | Aim: Animation Commands in MDL
+## 05/18/18 - 05/21/18 | Aim: Animation Commands in MDL
 
 __Animation Commands in MDL__
 
@@ -1035,3 +1035,7 @@ __3 Pass Animation Framework__
 - Loop through operations for each frame (ignore frames and vary because we already looped through them)
 - At the beginning of eahc loop, set the symbol table values for each knob
 - Automatically save each frame
+
+__Structure for storing knob values__
+- Array of linked list
+- populated everytime to you see the vary command
