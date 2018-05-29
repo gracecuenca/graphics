@@ -1039,3 +1039,25 @@ __3 Pass Animation Framework__
 __Structure for storing knob values__
 - Array of linked list
 - populated everytime to you see the vary command
+
+## 05/29/18 | Aim: Shading Models
+
+__Shading Models__
+- When/How frequently you calculate color (I)
+- __Flat Shading__
+  - Calculating I once per polygon
+  - Renders flat polygons
+  - Remember, we're still trying to color in a polygon mesh
+- __Gouraud Shading__
+  - Calculate I once per vertex
+  - Interpolate I along the scanlines (essentially create a gradient), so draw_line() has to now take two colors (calculate r, g. b)
+- __Phong Shading__
+  - Similar to gouraud in that we look at each vertex
+  - Calculate I once per pixel
+  - Interpolate the vertex normal along the scanlines (calculate x, y, ze)
+  - Much better at generig smooth shape with smaller polygon count
+
+__Calculating Normals for Gouraud and Phong__
+- Vertex normals: combined values of all surface normals for polygons that share the vertex
+
+
