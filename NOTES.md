@@ -1040,7 +1040,7 @@ __Structure for storing knob values__
 - Array of linked list
 - populated everytime to you see the vary command
 
-## 05/29/18 | Aim: Shading Models
+## 05/29/18 - 5/30/18 | Aim: Shading Models
 
 __Shading Models__
 - When/How frequently you calculate color (I)
@@ -1060,4 +1060,5 @@ __Shading Models__
 __Calculating Normals for Gouraud and Phong__
 - Vertex normals: combined values of all surface normals for polygons that share the vertex
 
-
+__Vertex Normals__
+- Combination of the surface normals off all polygons that share a vertex
